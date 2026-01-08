@@ -15,3 +15,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .gemini/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
