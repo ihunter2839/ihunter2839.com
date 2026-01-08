@@ -1,0 +1,17 @@
+title: ihunter2839
+description: Ian Hunter's digital space
+baseurl: ""
+url: "http://ihunter2839.com"
+
+# Build settings
+markdown: kramdown
+theme: minima # Optional, but good to have a default
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gemini/

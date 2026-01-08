@@ -1,67 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+---
+layout: default
+title: Projects
+---
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-
-        <link rel="stylesheet" href="css/ihunter2839.css">
-    </head>
-    <body>
-        <div class="container-fluid" style="height: 100vh; padding: 0; overflow: scroll; position: relative">
-            <div class="row" style="position: fixed; left: 0; right: 0; top: 0; z-index: 1">
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/about.html">
-                        about
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/words.html">
-                        words
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/projects.html">
-                        projects
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/index.html">
-                        home
-                    </a>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5vh; padding: .25rem .5rem">
-                <h1 style="margin-top: 5vh"> what an absolutely disgusting projects page</h1>
-                <p> Maybe <i>this page</i> should be the next project </p>
-                <ul style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; margin: 0; padding: 0;">
-                    <li style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
-                        <a href="/colorado/12.27.2019.html">
-                            <h2> Colorado </h2>
-                        </a>
-                    </li>
-                    <li style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
-                        <a href="/liarsDice/liarsdice.html">
-                            <h2> Liar's Dice </h2>
-                        </a>
-                    </li>
-                    <li style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
-                        <a href="/fungi/">
-                            <h2> Fungi </h2>
-                        </a>
-                    </li>
-                    <li style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
-                        <a href="/cooking/">
-                            <h2> Recipes </h2>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </body>
-</html>
+<div class="container-fluid" style="height: 100vh; padding: 0; overflow: scroll; position: relative">
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5vh; padding: .25rem .5rem">
+        <h1 style="margin-top: 5vh"> what an absolutely disgusting projects page</h1>
+        <p> Maybe <i>this page</i> should be the next project </p>
+        <ul
+            style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; margin: 0; padding: 0;">
+            <li
+                style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
+                <a href="{{ " /colorado/12.27.2019.html" | relative_url }}">
+                    <h2> Colorado </h2>
+                </a>
+            </li>
+            <li
+                style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
+                <a href="{{ " /liarsDice/liarsdice.html" | relative_url }}">
+                    <h2> Liar's Dice </h2>
+                </a>
+            </li>
+            <li
+                style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
+                <a href="{{ " /fungi/" | relative_url }}">
+                    <h2> Fungi </h2>
+                </a>
+            </li>
+            <li
+                style="height: 10rem; width: 10rem; margin: .5rem; border: 1px solid #e3e3e3; border-radius: 5px; display: flex; align-items: center; justify-content: center">
+                <a href="{{ " /cooking/" | relative_url }}">
+                    <h2> Recipes </h2>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
