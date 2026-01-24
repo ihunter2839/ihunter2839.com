@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Home</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
@@ -19,7 +15,7 @@
     
 </head>
 
-<body>
+<body style="margin: 0;">
     <div
     style="display: flex; flex-direction: row; justify-content: space-around; position: fixed; left: 0; right: 0; top: 0; z-index: 1000; height: 2rem; background: rgb(0,0,0);">
     <a class="headerLink" href="/%20/about.html">about</a>
@@ -29,10 +25,10 @@
 </div>
 
     <div style="height: 100vh; padding: 0; overflow: scroll; position: relative">
-    <svg width="1662" height="1125" preserveAspectRatio="xMidYMid">
-        <image id="backgroundImage" width="1662" height="1125" x="0" y="0"></image>
+    <svg width="100vw" height="100vh" preserveAspectRatio="xMidYMid">
+        <image id="backgroundImage" width="100vw" x="0" y="0"></image>
         <a xlink:href="/%20/img/brutal.gif" target="_blank">
-            <image class="neuron" xlink:href="/%20/img/n1.png" x="40" y="3" width="46" height="126">
+            <image class="neuron" xlink:href="/%20/img/n1.png">
             </image>
         </a>
         <image xlink:href="/%20/img/n3.png" x="99" y="643" width="42" height="127">
@@ -74,18 +70,41 @@
     })
 </script>
 
+<script type="text/javascript">
+    let neuron = document.getElementsByClassName("neuron")
+    let backgroundImage = document.getElementById("backgroundImage")
+
+    let xScaling = backgroundImage.scrollWidth / 1662
+    let yScaling = backgroundImage.scrollHeight / 1125
+
+    let neuronPositions = [
+        { x: 40, y: 3 },
+        { x: 99, y: 643 },
+        { x: 87, y: 778 },
+    ]
+    let neuronImages = [
+        "/img/n1.png",
+        "/img/n2.png",
+        "/img/n3.png",
+    ]
+
+    let neuronSizes = [
+        { width: 46, height: 126 },
+        { width: 41, height: 298 },
+        { width: 42, height: 127 },
+    ]
+
+    for (let i = 0; i < neuron.length; i++) {
+        neuron[i].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', neuronImages[i])
+        neuron[i].setAttribute("x", neuronPositions[i].x * xScaling)
+        neuron[i].setAttribute("y", neuronPositions[i].y * yScaling)
+        neuron[i].setAttribute("width", neuronSizes[i].width * xScaling)
+        neuron[i].setAttribute("height", neuronSizes[i].height * yScaling)
+    }
+</script>
+
     
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

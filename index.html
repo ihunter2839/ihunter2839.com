@@ -4,10 +4,10 @@ title: Home
 ---
 
 <div style="height: 100vh; padding: 0; overflow: scroll; position: relative">
-    <svg width="1662" height="1125" preserveAspectRatio="xMidYMid">
-        <image id="backgroundImage" width="1662" height="1125" x="0" y="0"></image>
+    <svg width="100vw" height="100vh" preserveAspectRatio="xMidYMid">
+        <image id="backgroundImage" width="100vw" x="0" y="0"></image>
         <a xlink:href="{{ " /img/brutal.gif" | relative_url }}" target="_blank">
-            <image class="neuron" xlink:href="{{ " /img/n1.png" | relative_url }}" x="40" y="3" width="46" height="126">
+            <image class="neuron" xlink:href="{{ " /img/n1.png" | relative_url }}">
             </image>
         </a>
         <image xlink:href="{{ " /img/n3.png" | relative_url }}" x="99" y="643" width="42" height="127">
@@ -47,4 +47,37 @@ title: Home
         })
         backgroundImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '{{ "/img/b2.png" | relative_url }}')
     })
+</script>
+
+<script type="text/javascript">
+    let neuron = document.getElementsByClassName("neuron")
+    let backgroundImage = document.getElementById("backgroundImage")
+
+    let xScaling = backgroundImage.scrollWidth / 1662
+    let yScaling = backgroundImage.scrollHeight / 1125
+
+    let neuronPositions = [
+        { x: 40, y: 3 },
+        { x: 99, y: 643 },
+        { x: 87, y: 778 },
+    ]
+    let neuronImages = [
+        "/img/n1.png",
+        "/img/n2.png",
+        "/img/n3.png",
+    ]
+
+    let neuronSizes = [
+        { width: 46, height: 126 },
+        { width: 41, height: 298 },
+        { width: 42, height: 127 },
+    ]
+
+    for (let i = 0; i < neuron.length; i++) {
+        neuron[i].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', neuronImages[i])
+        neuron[i].setAttribute("x", neuronPositions[i].x * xScaling)
+        neuron[i].setAttribute("y", neuronPositions[i].y * yScaling)
+        neuron[i].setAttribute("width", neuronSizes[i].width * xScaling)
+        neuron[i].setAttribute("height", neuronSizes[i].height * yScaling)
+    }
 </script>
