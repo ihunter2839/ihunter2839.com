@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reading</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="root" style="height: 100vh; width: 100vw; overflow-y: scroll">
+    </div>
+
+    <script type="application/javascript">
+        let url = window.location.href
+
+        let rootDom = document.getElementById('root')
+
+        let contentFrame = document.createElement('iframe')
+        contentFrame.style = "height: 100%; width: 100%"
+        contentFrame.src = url.split("?url=").pop()
+        rootDom.appendChild(contentFrame)
+
+        if (url.includes('nytimes')) {
+            //new york times logic preserved
+        } else if (url.includes('bloomberg')) {
+            //bloomberg logic preserved
+            let ps = document.getElementsByTagName('p')
+            for (let p of ps) {
+                p.style = 'display: block'
+            }
+        }
+    </script>
+</body>
+
+</html>

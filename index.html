@@ -1,78 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="css/ihunter2839.css">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+---
+layout: default
+title: Home
+transparent_header: true
+---
 
-    </head>
-    <body style="display: flex; margin: 0px">
-        <div style="height: 100vh; padding: 0; overflow: scroll; position: relative">
-            <div style="display: flex; flex-direction: row; justify-content: space-around; position: fixed; left: 0; right: 0; top: 0; z-index: 1; height: 2rem;">                        <a class="headerLink" href="/about.html">
-                    about
-                </a>
+<div style="height: 100vh; padding: 0; overflow: scroll; position: relative">
+    <svg id="background_container" width="100vw" height="100vh" preserveAspectRatio="xMidYMid">
+        <image id="backgroundImage" min-width="800px" x="0" y="0"></image>
+        <a xlink:href="{{ ' /img/brutal.gif' | relative_url }}" target="_blank">
+            <image class="neuron" data-index="0"></image>
+        </a>
+        <image class="neuron" data-index="1"></image>
+        <image class="neuron" data-index="2"></image>
+    </svg>
+</div>
 
-                <a class="headerLink" href="/words.html">
-                    words
-                </a>
+<div id="loader" class="loader">
+</div>
 
-                <a class="headerLink" href="/projects.html">
-                    projects
-                </a>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const backgroundImage = document.getElementById("backgroundImage");
+        const loader = document.getElementById('loader');
+        const neurons = document.getElementsByClassName("neuron");
 
-                <a class="headerLink" href="/index.html">
-                    home
-                </a>
-            </div>
+        const NEURON_CONFIG = [
+            { href: '{{ "/img/n1.png" | relative_url }}', x: 40, y: 3, width: 46, height: 126 },
+            { href: '{{ "/img/n3.png" | relative_url }}', x: 99, y: 643, width: 42, height: 127 },
+            { href: '{{ "/img/n2.png" | relative_url }}', x: 87, y: 778, width: 41, height: 298 }
+        ];
 
-            <svg width="1662" height="1125" preserveAspectRatio="xMidYMid">
-                <image
-                    id="backgroundImage"
-                    width="1662" height="1125" x="0" y="0"></image>
-                <a xlink:href="img/brutal.gif" target="_blank">
-                    <image class="neuron" xlink:href="img/n1.png" x="40" y="3" width="46" height="126">
-                    </image>
-                </a>
-                <image xlink:href="img/n3.png" x="99" y="643" width="42" height="127">
-                </image>
-                <image xlink:href="img/n2.png" x="87" y="778" width="41" height="298">
-                </image>
-            </svg>
-        </div>
+        // Base resolution from which positions and sizes were calculated
+        const BASE_WIDTH = 1662;
+        const BASE_HEIGHT = 1125;
+        const BACKGROUND_RATIO = 1662 / 1125;
 
-        <div id="loader" class="loader">
-        </div>
+        function scaleNeurons() {
+            const container_rect = background_container.getBoundingClientRect();
+            const container_width = container_rect.width;
+            const container_height = container_rect.height;
+            const container_ratio = container_rect.width / container_rect.height;
 
-        <script type="text/javascript">
-            document.addEventListener('DOMContentLoaded', (event) => {
-                let backgroundImage = document.getElementById("backgroundImage")
-                //wait until the image has loaded to trigger animation
-                backgroundImage.addEventListener("load", (event) => {
-                    const loader = document.getElementById('loader')
-                    window.setTimeout( () => {
-                        loader.addEventListener('animationend', (event) => {
-                            console.log('animation ended')
-                            loader.style.display = 'none'
-                        })
-                        loader.animate([
-                            { opacity: 1},
-                            { opacity: 0 },
-                        ], {
-                            duration: 1000,
-                            easing: "ease-out",
-                            iterations: 1,
-                            fill: "forwards",
-                        })
-                        window.setTimeout( () => {
-                            loader.style.display = 'none'
-                        }, 1000)
-                    }, 2000)
-                })
-                backgroundImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'img/b2.png')
-            })
-        </script>
+            if (container_ratio >= BACKGROUND_RATIO) {
+                backgroundImage.setAttribute("width", "100vw");
+                backgroundImage.setAttribute("height", "auto");
+            } else {
+                backgroundImage.setAttribute("width", "auto");
+                backgroundImage.setAttribute("height", "100vh");
+            }
 
-    </body>
+            // Use getBoundingClientRect for accurate rendered dimensions
+            const rect = backgroundImage.getBoundingClientRect();
+            const currentWidth = rect.width;
+            const currentHeight = rect.height;
 
-</html>
+            if (currentWidth === 0) return; // Background image not yet styled or rendered
+
+            const xScaling = currentWidth / BASE_WIDTH;
+            const yScaling = currentHeight / BASE_HEIGHT;
+
+            for (let i = 0; i < neurons.length; i++) {
+                const config = NEURON_CONFIG[i];
+                if (!config) continue;
+
+                neurons[i].setAttribute("x", config.x * xScaling);
+                neurons[i].setAttribute("y", config.y * yScaling);
+                neurons[i].setAttribute("width", config.width * xScaling);
+                neurons[i].setAttribute("height", config.height * yScaling);
+
+                // Set href if not already set
+                if (!neurons[i].getAttributeNS('http://www.w3.org/1999/xlink', 'href')) {
+                    neurons[i].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', config.href);
+                }
+            }
+        }
+
+        // Animation and Loader Logic
+        backgroundImage.addEventListener("load", (event) => {
+            window.setTimeout(() => {
+                loader.addEventListener('animationend', (event) => {
+                    console.log('animation ended');
+                    loader.style.display = 'none';
+                });
+                loader.animate([
+                    { opacity: 1 },
+                    { opacity: 0 },
+                ], {
+                    duration: 1000,
+                    easing: "ease-out",
+                    iterations: 1,
+                    fill: "forwards",
+                });
+                window.setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }, 2000);
+            scaleNeurons();
+        });
+
+        // Initial call and resize handling
+        window.addEventListener('resize', scaleNeurons);
+
+        // Trigger load manually if already cached/loaded
+        if (backgroundImage.complete) {
+            scaleNeurons();
+        }
+
+        // Set the background image source to trigger the load event
+        backgroundImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '{{ "/img/b2.png" | relative_url }}');
+    });
+</script>

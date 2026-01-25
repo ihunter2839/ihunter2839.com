@@ -1,67 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+---
+layout: default
+title: Words
+---
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-
-        <link rel="stylesheet" href="css/ihunter2839.css">
-
-    </head>
-
-    <body>
-
-        <div class="container-fluid" style="height: 100vh; padding: 0; overflow: hidden; position: relative">
-            <div class="row" style="position: fixed; left: 0; right: 0; top: 0; z-index: 1">
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/about.html">
-                        about
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/words.html">
-                        words
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/sounds.html">
-                        sounds
-                    </a>
-                </div>
-                <div class="col-3 text-center">
-                    <a class="headerLinkDark" href="/index.html">
-                        home
-                    </a>
-                </div>
+<div class="words-container">
+    <!-- Left Sidebar -->
+    <div class="words-sidebar">
+        <!-- Tags Filter -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Tags</h3>
+            <div class="tags-container">
+                <span class="tag-pill active" onclick="filterTags('all', this)">All</span>
+                {% for tag in site.tags %}
+                <span class="tag-pill" onclick="filterTags('{{ tag[0] }}', this)">{{ tag[0] }}</span>
+                {% endfor %}
             </div>
-
-            <div class="row" style="height: 80vh; margin-top: 5vh;">
-                <div class="col-12 text-center">
-                    <img src="img/cloneHigh.gif" style="width: 90vw; max-width: 700px; margin-top: 10vh; margin-left: 5vw; margin-right: 5vw;"/>
-
-                    <div style="margin-top: 5vh;"> This page is still under construction</div>
-                    <div id="text_input_container"> </div>
-                </div>
-            </div>
-
         </div>
 
-        <!--Load React -->
-        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-        <!--Add JSX support -->
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-        <!--Load our React components -->
-        <script type="text/babel" src="./js/text_input.js"></script>
-        <!--Load jQuery and associated libraries -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+        <!-- Posts List -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Posts</h3>
+            <div class="posts-list">
+                {% for post in site.posts %}
+                <div class="post-item" data-tags="{{ post.tags | join: ',' }}"
+                    onclick="selectPost('{{ post.id }}', this)">
+                    <div class="post-title">{{ post.title }}</div>
+                    <div class="post-date">{{ post.date | date_to_string }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
-</html>
+    <!-- Right Content Area -->
+    <div class="words-content">
+        {% for post in site.posts %}
+        <div id="{{ post.id }}" class="post-content-container" style="display: none;">
+            <h1>{{ post.title }}</h1>
+            <div class="post-meta">{{ post.date | date_to_string }}</div>
+            <div class="post-body">
+                {{ post.content }}
+            </div>
+        </div>
+        {% endfor %}
+        <div id="empty-state" class="post-content-container"
+            style="display: none; text-align: center; margin-top: 20vh; color: #666;">
+            Select a post to read
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        ☰
+    </button>
+</div>
+
+<script>
+    // Global state
+    let currentTag = 'all';
+
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.words-sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+
+    // Auto-collapse on mobile when clicking a post
+    function checkMobileCollapse() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.words-sidebar').classList.add('collapsed');
+        }
+    }
+
+    function filterTags(tag, element) {
+        currentTag = tag;
+
+        // Update tag styles
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Filter post items
+        const postItems = document.querySelectorAll('.post-item');
+        let visibleCount = 0;
+        let firstVisiblePostId = null;
+
+        postItems.forEach(item => {
+            const itemTags = item.dataset.tags.split(',');
+            if (tag === 'all' || itemTags.includes(tag)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function selectPost(postId, element) {
+        // Update active selection style
+        document.querySelectorAll('.post-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Show content
+        document.querySelectorAll('.post-content-container').forEach(el => el.style.display = 'none');
+        const content = document.getElementById(postId);
+        if (content) {
+            content.style.display = 'block';
+        }
+
+        checkMobileCollapse();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select first post by default if exists
+        const firstPostItem = document.querySelector('.post-item');
+        if (firstPostItem) {
+            // Simulate click to select
+            firstPostItem.click();
+        } else {
+            document.getElementById('empty-state').style.display = 'block';
+        }
+    });
+</script>
