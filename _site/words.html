@@ -26,17 +26,222 @@
     <a class="headerLink" href="/%20/index.html">home</a>
 </div>
 
-    <div class="container-fluid" style="height: 100vh; padding: 0; overflow: hidden; position: relative">
-    <div class="row" style="height: 80vh; margin-top: 5vh;">
-        <div class="col-12 text-center">
-            <img src="/%20/img/cloneHigh.gif"
-                style="width: 90vw; max-width: 700px; margin-top: 10vh; margin-left: 5vw; margin-right: 5vw;" />
+    <div class="words-container">
+    <!-- Left Sidebar -->
+    <div class="words-sidebar">
+        <!-- Tags Filter -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Tags</h3>
+            <div class="tags-container">
+                <span class="tag-pill active" onclick="filterTags('all', this)">All</span>
+                
+                <span class="tag-pill" onclick="filterTags('poems', this)">poems</span>
+                
+                <span class="tag-pill" onclick="filterTags('prose', this)">prose</span>
+                
+            </div>
+        </div>
 
-            <div style="margin-top: 5vh;"> This page is still under construction</div>
-            <div id="text_input_container"> </div>
+        <!-- Posts List -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Posts</h3>
+            <div class="posts-list">
+                
+                <div class="post-item" data-tags="poems"
+                    onclick="selectPost('/2026/01/24/day-one', this)">
+                    <div class="post-title">Day One</div>
+                    <div class="post-date">24 Jan 2026</div>
+                </div>
+                
+                <div class="post-item" data-tags="poems"
+                    onclick="selectPost('/2017/05/17/burgeoning_bouquets', this)">
+                    <div class="post-title">Burgeoning Bouquets</div>
+                    <div class="post-date">17 May 2017</div>
+                </div>
+                
+                <div class="post-item" data-tags="prose"
+                    onclick="selectPost('/2016/10/09/moms-service', this)">
+                    <div class="post-title">Mom's Service</div>
+                    <div class="post-date">09 Oct 2016</div>
+                </div>
+                
+                <div class="post-item" data-tags="poems"
+                    onclick="selectPost('/2016/09/09/divisions', this)">
+                    <div class="post-title">Divisions</div>
+                    <div class="post-date">09 Sep 2016</div>
+                </div>
+                
+            </div>
         </div>
     </div>
+
+    <!-- Right Content Area -->
+    <div class="words-content">
+        
+        <div id="/2026/01/24/day-one" class="post-content-container" style="display: none;">
+            <h1>Day One</h1>
+            <div class="post-meta">24 Jan 2026</div>
+            <div class="post-body">
+                <p>Well, I guess this is it - finally getting around to adding some of my “written work” to my website. It will be nice to centralize the poems, because they are currently scattered across notebooks, scraps of paper, facebook, etc. But additionally it will be a nudge to write more often (and aparently outside of this damn antigravity IDE with its continuous AI suggestions, I can’t even look at the screen as I type this without being bombarded with the bots next best suggestion).</p>
+
+<p>Not feeling like saying much of anything, doing anything, or being anything today to be frank. But first order emotions and all that, it’ll pass. It always does.</p>
+
+<p>I hate this</p>
+
+<p>I hate that I miss the taste of your lips</p>
+
+<p>I hate that instead of leaning in for a kiss</p>
+
+<p>I’m sitting here letting my mind reminisce</p>
+
+            </div>
+        </div>
+        
+        <div id="/2017/05/17/burgeoning_bouquets" class="post-content-container" style="display: none;">
+            <h1>Burgeoning Bouquets</h1>
+            <div class="post-meta">17 May 2017</div>
+            <div class="post-body">
+                <p>Burgeoning bouquets, <br />
+count the petals before they wither. <br />
+Think about you as I watch sunflowers through my window. <br />
+Blowing gently in the breeze as <br />
+busy bees inspect the seeds <br />
+collecting pollen on their backs until <br />
+they leave and don’t come back.</p>
+
+<p>Blossoming arrays outside <br />
+bring memories of days gone by. <br />
+We’ll plant them in the spring I said <br />
+you laughed it off, just shook your head <br />
+And as we stood there knowing in full <br />
+That all flowers bloom <br />
+but quickly are pulled <br />
+back to the ground where <br />
+all the living things are planted. <br />
+I dig the hole alone <br />
+drop the seeds in empty handed.</p>
+
+            </div>
+        </div>
+        
+        <div id="/2016/10/09/moms-service" class="post-content-container" style="display: none;">
+            <h1>Mom's Service</h1>
+            <div class="post-meta">09 Oct 2016</div>
+            <div class="post-body">
+                <p>During the summer, my mother, father and I used to go for long road trips across the country. On one such trip, we found ourselves at Lake Louise in the Alberta province of Canada. We walked along the shore of the lake, in awe of the calm sapphire water and the towering alps in the background. As the sun began to dip in the sky, we made our way back to the car and headed for the nearest public campground. We arrived to a small spot tucked away amidst old growth trees, cut out from the thick green brush that covered the ground.  Just like every other night, we routinely set up our tent, rolled out our 32 degree Californian sleeping bags, and made a fire. My favorite part of these road trips was their unpredictability - the spontaneity of the events, places, and scenes. It afforded us a much needed break from the school week cycle, where everything was set into a daily routine. That night at Lake Louise, the unpredictable was the freezing cold. Huddled in our sleeping bags, we put on every piece of clothing that we had brought with us. No patch of skin could be left exposed, and eventually we wrapped ourselves up until only our mouths were visible to the frigid air. Even with these extra layers none of us could sleep, so we shivered our way through the long night. When the sun finally peeked its head over the mountain top, Dad quickly got up, made a fire, and heated some water. He poured the hot water into water bottles, jumped back into the tent, and gave Mom and me a hot water bottle to heat ourselves with. As we all laid there in our tent, curled up in our sleeping bags, frantically trying to heat our extremities with a bottle of hot water, we all had to laugh. Not just a “this is ridiculous” giggle, or a “why did we do this to ourselves” chuckle, but a deep, long laugh that comes from the shared experience of the unpredictable with those that you love. More than anything else, I will miss sharing these kinds of experiences with my mother and being able to laugh with her about the quirks and idiosyncrasies of life that make living enjoyable. And so, although I am devastated by the fact that I will not hear my mother’s laugh again, I am grateful for every minute that I have spent with her.</p>
+
+            </div>
+        </div>
+        
+        <div id="/2016/09/09/divisions" class="post-content-container" style="display: none;">
+            <h1>Divisions</h1>
+            <div class="post-meta">09 Sep 2016</div>
+            <div class="post-body">
+                <p>Trying not to see the sides <br />
+Just to focus on the division <br />
+People have split themselves in two <br />
+Based on just one night’s decision <br />
+And although the incision has cut to bone <br />
+This place, <br />
+The structure that we call home <br />
+Can’t go on in shambles. <br />
+With two half bodies that only speak in <br />
+Yelling matches <br />
+Brawling over a light and a match stick <br />
+To turn us all to ashes. <br />
+So while I’m concerned and confused <br />
+I refuse to spew verbal abuse <br />
+Upon those with differing views. <br />
+If you think that only your side is afraid <br />
+Please think again. <br />
+If you think that only one side of this is wrong <br />
+Then there’s a record to amend. <br />
+Trying not to see the sides, <br />
+Just focus on the division. <br />
+And how to erase away these lines <br />
+That tear apart all our visions. \</p>
+
+            </div>
+        </div>
+        
+        <div id="empty-state" class="post-content-container"
+            style="display: none; text-align: center; margin-top: 20vh; color: #666;">
+            Select a post to read
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        ☰
+    </button>
 </div>
+
+<script>
+    // Global state
+    let currentTag = 'all';
+
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.words-sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+
+    // Auto-collapse on mobile when clicking a post
+    function checkMobileCollapse() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.words-sidebar').classList.add('collapsed');
+        }
+    }
+
+    function filterTags(tag, element) {
+        currentTag = tag;
+
+        // Update tag styles
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Filter post items
+        const postItems = document.querySelectorAll('.post-item');
+        let visibleCount = 0;
+        let firstVisiblePostId = null;
+
+        postItems.forEach(item => {
+            const itemTags = item.dataset.tags.split(',');
+            if (tag === 'all' || itemTags.includes(tag)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function selectPost(postId, element) {
+        // Update active selection style
+        document.querySelectorAll('.post-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Show content
+        document.querySelectorAll('.post-content-container').forEach(el => el.style.display = 'none');
+        const content = document.getElementById(postId);
+        if (content) {
+            content.style.display = 'block';
+        }
+
+        checkMobileCollapse();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select first post by default if exists
+        const firstPostItem = document.querySelector('.post-item');
+        if (firstPostItem) {
+            // Simulate click to select
+            firstPostItem.click();
+        } else {
+            document.getElementById('empty-state').style.display = 'block';
+        }
+    });
+</script>
 
     
 
