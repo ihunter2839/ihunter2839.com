@@ -45,13 +45,23 @@
 }
 
 @keyframes dariaAnimationUp {
-    from {margin-top: 0;}
-    to {margin-top: -20vh;}
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: -20vh;
+    }
 }
 
 @keyframes dariaAnimationDown {
-    from {margin-top: -20vh;}
-    to {margin-top: 0;}
+    from {
+        margin-top: -20vh;
+    }
+
+    to {
+        margin-top: 0;
+    }
 }
 
 .aboutImage {
@@ -66,8 +76,13 @@
 }
 
 @keyframes aboutImage {
-    from {height: 15vh;}
-    to {height: 17vh;}
+    from {
+        height: 15vh;
+    }
+
+    to {
+        height: 17vh;
+    }
 }
 
 .loader {
@@ -84,23 +99,61 @@
 }
 
 .neuron {
-  animation: neuronFlash 5s;
-  animation-direction: normal;
-  animation-play-state: running;
-  animation-iteration-count: infinite;
+    animation: neuronFlash 5s;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
 }
 
 @keyframes neuronFlash {
-  0% {
-    filter: hue-rotate(0deg);
-    -webkit-filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(180deg);
-    -webkit-filter: hue-rotate(180deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-    -webkit-filter: hue-rotate(360deg);
-  }
+    0% {
+        filter: hue-rotate(0deg);
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(180deg);
+        -webkit-filter: hue-rotate(180deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+        -webkit-filter: hue-rotate(360deg);
+    }
+}
+
+/* Flexbox Utilities */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-space-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
 }
