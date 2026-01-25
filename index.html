@@ -7,7 +7,7 @@ transparent_header: true
 <div style="height: 100vh; padding: 0; overflow: scroll; position: relative">
     <svg id="background_container" width="100vw" height="100vh" preserveAspectRatio="xMidYMid">
         <image id="backgroundImage" min-width="800px" x="0" y="0"></image>
-        <a xlink:href="{{ ' /img/brutal.gif' | relative_url }}" target="_blank">
+        <a xlink:href="/img/brutal.gif" target="_blank">
             <image class="neuron" data-index="0"></image>
         </a>
         <image class="neuron" data-index="1"></image>
@@ -25,9 +25,9 @@ transparent_header: true
         const neurons = document.getElementsByClassName("neuron");
 
         const NEURON_CONFIG = [
-            { href: '{{ "/img/n1.png" | relative_url }}', x: 40, y: 3, width: 46, height: 126 },
-            { href: '{{ "/img/n3.png" | relative_url }}', x: 99, y: 643, width: 42, height: 127 },
-            { href: '{{ "/img/n2.png" | relative_url }}', x: 87, y: 778, width: 41, height: 298 }
+            { href: '/img/n1.png', x: 40, y: 3, width: 46, height: 126 },
+            { href: '/img/n3.png', x: 99, y: 643, width: 42, height: 127 },
+            { href: '/img/n2.png', x: 87, y: 778, width: 41, height: 298 }
         ];
 
         // Base resolution from which positions and sizes were calculated
@@ -107,6 +107,6 @@ transparent_header: true
         }
 
         // Set the background image source to trigger the load event
-        backgroundImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '{{ "/img/b2.png" | relative_url }}');
+        backgroundImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/img/b2.png');
     });
 </script>
