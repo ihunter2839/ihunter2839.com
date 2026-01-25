@@ -168,7 +168,6 @@
     padding-top: 5vh;
     /* Push down below navbar */
     width: 100%;
-    overflow: scroll;
 }
 
 .words-sidebar {
