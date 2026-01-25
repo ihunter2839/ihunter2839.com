@@ -21,22 +21,22 @@
     background: rgb(0,0,0);
     ">
     <a class="headerLink" href="/%20/about.html">about</a>
-    <a class="headerLink" href="/%20/words.html">words</a>
     <a class="headerLink" href="/%20/projects.html">projects</a>
+    <a class="headerLink" href="/%20/words.html">words</a>
     <a class="headerLink" href="/%20/index.html">home</a>
 </div>
 
-    <div class="container-fluid" style="height: 100vh; padding: 0; position: relative; overflow-x: hidden">
+    <div class="flex-column" style="height: 100vh; padding: 0; position: relative; overflow-x: hidden">
 
-    <div class="row" style="height: 20vh; background-image: url(/%20/img/escherBirds.gif);
+    <div class="w-100" style="height: 20vh; background-image: url(/%20/img/escherBirds.gif);
         background-repeat: repeat-x; background-size: contain">
     </div>
 
-    <div class="row navbar" style="background-color: black">
+    <div class="navbar w-100" style="background-color: black">
     </div>
 
-    <div class="row" style="height: 25vh">
-        <div class="col-12">
+    <div class="w-100" style="height: 25vh">
+        <div class="w-100">
             <div style="display: flex; flex-direction: row">
                 <img class="aboutImage" src="/%20/img/me3.png">
                 <div
@@ -46,8 +46,8 @@
         </div>
     </div>
 
-    <div class="row" style="height: 40vh">
-        <div class="col-10 offset-1 my-auto">
+    <div class="w-100 flex-center" style="height: 40vh">
+        <div class="my-auto" style="width: 80%; margin: 0 auto;">
             <div style="font-family: Ubuntu, sans-serif; font-size: 1.2em">
                 And this is my digital space. For a while now I have wanted to create a place where I could easily drop
                 my internet findings and experiment with some unorthodox user experiences. At the same time, I have been
@@ -59,24 +59,25 @@
         </div>
     </div>
 
-    <div class="row footer" style="position: fixed; left: 0; right: 0; bottom: 0; background-color: black; height: 7vh">
-        <div class="col-6 offset-3" style="padding: 0 0;">
-            <div class="row">
-                <div class="col-4 text-center">
+    <div class="footer w-100 flex-center"
+        style="position: fixed; left: 0; right: 0; bottom: 0; background-color: black; height: 7vh">
+        <div style="width: 50%; padding: 0 0;">
+            <div class="flex-row flex-space-around">
+                <div class="text-center">
                     <a href="https://github.com/ihunter2839" target="_blank">
                         <img class="round" src="/%20/img/icons/github.png"
                             style="height: 5vh; width: auto; margin: 1vh;">
                     </a>
                 </div>
-                <div class="col-4 text-center">
+                <div class="text-center">
                     <a href="https://www.linkedin.com/in/ian-hunter-9b156a75/" target="_blank">
                         <img class="round" src="/%20/img/icons/linkedin.png"
                             style="height: 5vh; width: auto; margin: 1vh;">
                     </a>
                 </div>
-                <div class="col-4 text-center my-auto">
+                <div class="text-center my-auto">
                     <a href="/%20/other/resume.html">
-                        <div class="headerLink">resume</div>
+                        <div class="headerLink" style="text-decoration: none;">resume</div>
                     </a>
                 </div>
             </div>
