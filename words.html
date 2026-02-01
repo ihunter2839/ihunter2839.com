@@ -22,11 +22,13 @@ title: Words
             <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Posts</h3>
             <div class="posts-list">
                 {% for post in site.posts %}
+                {% unless post.categories contains 'cooking' %}
                 <div class="post-item" data-tags="{{ post.tags | join: ',' }}"
                     onclick="selectPost('{{ post.id }}', this)">
                     <div class="post-title">{{ post.title }}</div>
                     <div class="post-date">{{ post.date | date_to_string }}</div>
                 </div>
+                {% endunless %}
                 {% endfor %}
             </div>
         </div>
@@ -35,6 +37,7 @@ title: Words
     <!-- Right Content Area -->
     <div class="words-content">
         {% for post in site.posts %}
+        {% unless post.categories contains 'cooking' %}
         <div id="{{ post.id }}" class="post-content-container" style="display: none;">
             <h1>{{ post.title }}</h1>
             <div class="post-meta">{{ post.date | date_to_string }}</div>
@@ -42,6 +45,7 @@ title: Words
                 {{ post.content }}
             </div>
         </div>
+        {% endunless %}
         {% endfor %}
         <div id="empty-state" class="post-content-container"
             style="display: none; text-align: center; margin-top: 20vh; color: #666;">

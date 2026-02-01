@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cooking</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/css/ihunter2839.css">
+
+    
+</head>
+
+<body style="margin: 0;">
+    <div style="display: flex; flex-direction: row; justify-content: space-around; position: fixed; left: 0; right: 0; top: 0; z-index: 1000; height: 2rem; 
+    
+    background: rgb(0,0,0);
+    ">
+    <a class="headerLink" href="/about.html">about</a>
+    <a class="headerLink" href="/projects.html">projects</a>
+    <a class="headerLink" href="/stuff.html">stuff</a>
+    <a class="headerLink" href="/index.html">home</a>
+</div>
+
+    <div class="words-container">
+    <!-- Left Sidebar -->
+    <div class="words-sidebar">
+        <!-- Tags Filter -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Tags</h3>
+            <div class="tags-container">
+                <span class="tag-pill active" onclick="filterTags('all', this)">All</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('poems', this)">poems</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('prose', this)">prose</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('colorado', this)">colorado</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('travel', this)">travel</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('dinner', this)">dinner</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('italian', this)">italian</span>
+                
+                
+                <span class="tag-pill" onclick="filterTags('Korean', this)">Korean</span>
+                
+            </div>
+        </div>
+
+        <!-- Posts List -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Recipes</h3>
+            <div class="posts-list">
+                
+                <div class="post-item" data-tags="dinner,italian"
+                    onclick="selectPost('/cooking/2026/01/25/mushroom-risotto', this)">
+                    <div class="post-title">Mushroom Risotto</div>
+                    <div class="post-date">25 Jan 2026</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Content Area -->
+    <div class="words-content">
+        
+        <div id="/cooking/2026/01/25/mushroom-risotto" class="post-content-container" style="display: none;">
+            <h1>Mushroom Risotto</h1>
+            <div class="post-meta">25 Jan 2026</div>
+            <div class="post-body">
+                <h3 id="mushroom-risotto-recipe">Mushroom Risotto Recipe</h3>
+
+<p>Here is a delicious recipe for mushroom risotto.</p>
+
+<ol>
+  <li>Sauté mushrooms.</li>
+  <li>Toast rice.</li>
+  <li>Add broth slowly.</li>
+  <li>Finish with parmesan and butter.</li>
+</ol>
+
+<p>Enjoy!</p>
+
+            </div>
+        </div>
+        
+        <div id="empty-state" class="post-content-container"
+            style="display: none; text-align: center; margin-top: 20vh; color: #666;">
+            Select a recipe to read
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        ☰
+    </button>
+</div>
+
+<script>
+    // Global state
+    let currentTag = 'all';
+
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.words-sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+
+    // Auto-collapse on mobile when clicking a post
+    function checkMobileCollapse() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.words-sidebar').classList.add('collapsed');
+        }
+    }
+
+    function filterTags(tag, element) {
+        currentTag = tag;
+
+        // Update tag styles
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Filter post items
+        const postItems = document.querySelectorAll('.post-item');
+        let visibleCount = 0;
+        let firstVisiblePostId = null;
+
+        postItems.forEach(item => {
+            const itemTags = item.dataset.tags.split(',');
+            if (tag === 'all' || itemTags.includes(tag)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function selectPost(postId, element) {
+        // Update active selection style
+        document.querySelectorAll('.post-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Show content
+        document.querySelectorAll('.post-content-container').forEach(el => el.style.display = 'none');
+        const content = document.getElementById(postId);
+        if (content) {
+            content.style.display = 'block';
+        }
+
+        checkMobileCollapse();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select first post by default if exists
+        const firstPostItem = document.querySelector('.post-item');
+        if (firstPostItem) {
+            // Simulate click to select
+            firstPostItem.click();
+        } else {
+            document.getElementById('empty-state').style.display = 'block';
+        }
+    });
+</script>
+
+    
+
+</body>
+
+</html>

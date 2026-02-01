@@ -1,0 +1,124 @@
+---
+layout: default
+title: Cooking
+---
+
+<div class="words-container">
+    <!-- Left Sidebar -->
+    <div class="words-sidebar">
+        <!-- Tags Filter -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Tags</h3>
+            <div class="tags-container">
+                <span class="tag-pill active" onclick="filterTags('all', this)">All</span>
+                {% for tag in site.tags %}
+                {% comment %} Check if tag belongs to any cooking post {% endcomment %}
+                <span class="tag-pill" onclick="filterTags('{{ tag[0] }}', this)">{{ tag[0] }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Posts List -->
+        <div>
+            <h3 style="font-family: 'Ubuntu', sans-serif; margin-bottom: 1rem;">Recipes</h3>
+            <div class="posts-list">
+                {% for post in site.categories.cooking %}
+                <div class="post-item" data-tags="{{ post.tags | join: ',' }}"
+                    onclick="selectPost('{{ post.id }}', this)">
+                    <div class="post-title">{{ post.title }}</div>
+                    <div class="post-date">{{ post.date | date_to_string }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Content Area -->
+    <div class="words-content">
+        {% for post in site.categories.cooking %}
+        <div id="{{ post.id }}" class="post-content-container" style="display: none;">
+            <h1>{{ post.title }}</h1>
+            <div class="post-meta">{{ post.date | date_to_string }}</div>
+            <div class="post-body">
+                {{ post.content }}
+            </div>
+        </div>
+        {% endfor %}
+        <div id="empty-state" class="post-content-container"
+            style="display: none; text-align: center; margin-top: 20vh; color: #666;">
+            Select a recipe to read
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        ☰
+    </button>
+</div>
+
+<script>
+    // Global state
+    let currentTag = 'all';
+
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.words-sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+
+    // Auto-collapse on mobile when clicking a post
+    function checkMobileCollapse() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.words-sidebar').classList.add('collapsed');
+        }
+    }
+
+    function filterTags(tag, element) {
+        currentTag = tag;
+
+        // Update tag styles
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Filter post items
+        const postItems = document.querySelectorAll('.post-item');
+        let visibleCount = 0;
+        let firstVisiblePostId = null;
+
+        postItems.forEach(item => {
+            const itemTags = item.dataset.tags.split(',');
+            if (tag === 'all' || itemTags.includes(tag)) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function selectPost(postId, element) {
+        // Update active selection style
+        document.querySelectorAll('.post-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        // Show content
+        document.querySelectorAll('.post-content-container').forEach(el => el.style.display = 'none');
+        const content = document.getElementById(postId);
+        if (content) {
+            content.style.display = 'block';
+        }
+
+        checkMobileCollapse();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select first post by default if exists
+        const firstPostItem = document.querySelector('.post-item');
+        if (firstPostItem) {
+            // Simulate click to select
+            firstPostItem.click();
+        } else {
+            document.getElementById('empty-state').style.display = 'block';
+        }
+    });
+</script>

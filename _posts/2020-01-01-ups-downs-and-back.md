@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Ups, Downs, and Back"
+date: 2020-01-01
+tags: ["colorado", "travel"]
+---
+
+### January 1 - 4, 2020
+## Ups, Downs, and Back
+
+After a full day of skiing (at least, for me) on New Year's Eve, we spent New Year's day working on concepts for the next iteration of the app and recuperating our relatively tired selves. The key take aways from the day's conversations:
+
+*   The most important component/action on the landing page must be the call for someone to share their complaint of police misconduct.
+*   Filling the landing page (or home page, as we have called it previously) with multiple calls to unique actions creates a cluttered page that generally requires a boat load of text to clarify the situation.
+*   The about page is a place for us to tell a short, cohesive narrative about our platform. It doesn't need to be an all-inclusive listing of every feature within the application, and splitting these more focused product descriptions into unique locations gives us the ability to more precisely guide various types of users to the information that is best suited for them.
+*   That being said, we need a scalable way (I'm looking at you, site footer) to list all available resourses on the platform in a consistent place.
+*   We see a general transition from the home page to the profile page as the <i style="display: inline">main location</i> of a user's experience. A general homepage is good for providing a single set of services to all users, whereas the profile page allows us to modify what actions and services each user specifically needs.
+
+<div style="display: flex; flex-direction: row; justify-content: center">
+    <img src="/colorado/res/viewFromRoom.jpg" style="width: 100%; max-width: 500px">
+</div>
+<p style="text-align: center; font-style: italic;">Ah, what a beautifuly snowy day</p>
+
+### Jan 2
+
+We got our second ski day in on the 2nd. After a solid day and night of snow (5-6") there was fresh pow on the slopes and we got out to the equipment rental facility at 8am sharp. Somehow, amongst the mismanaged nightmare that is Granby Ski Ranch's office setup, it took a full 45 minutes before Anuj had his equipment - he was <i>second in line</i>. I would encourage them to move individuals through the line faster, but that would only exacerbate the problems that the resort seems to have with the length of the primary lift line during peak hours. I got an early two runs down the main hill as Anuj got situated, and then we hopped on the <s>bunny hill</s> <i>milestone hill</i> for two or three runs together. After that I left him to suffer on his own down the hill while I took some runs down the Conquest lift - we reconvened at noon and upgraded Anuj's ticket to a full day pass so we could hop on the main lift. Anuj was a trooper and made it down the main green run twice before he started feeling a bit wobbly, and I was finally able to demonstrate the ultimate beauty of a ski in / ski out resort as we casually glided to the parking lot above the room from our final run.
+
+The 3rd was spent as a general chill day around the room. We cleaned up, ate the remainders of our food inventory, and prepared ourselves for an early am start on the 4th.
+
+<div style="display: flex; flex-direction: row; justify-content: center">
+    <img src="/colorado/res/granbyRanch.jpg" style="width: 100%;" />
+</div>
+<p style="text-align: center; font-style: italic;">A view from the road that leads up the main hill at Granby Ranch</p>
+
+We left at sunrise on the 4th. After some frantic recalculations, Waze determined our best route was <b><i>The Shortcut &#8482;</i></b> (aka Trough Road - CR 1 <a href="https://www.openstreetmap.org/query?lat=39.9322&lon=-106.5270" rel="nofollow noopener noreferrer" target="_blank">See on Map</a>). Then again, at the time that it was suggested by the navigation system, I didn't know that it was the road that we have historically called <b><i>The Shortcut &#174; &#8482;</i></b>, but it does a fantastic job of bypassing some of the worst stretches of Highway 70 going through Vail and Copper Mountain. There were a number of folks out on the road, some hunting from their snow mobiles, others camping (living? <i>pioneering?</i>) in their trailers along the Colorado river in the areas where the road ran close to the riverbed and the flat land. Although it's only partially paved - a decent portion of the road is just solid packed <s>dirt</s> <i>ice</i>, it was a much calmer and extremely scenic drive. In the hour it took us to traverse road, we saw an elk, a moose, and some wild goats - not surprising to see the folks out on the snow mobiles. The rest of the drive was pretty uneventful and that was <i>awesome</i>.
+
+<div style="display: flex; flex-direction: row; justify-content: center">
+    <img src="/colorado/res/goblinMountains.jpg" style="width: 100%; max-width: 500px">
+</div>
+<p style="text-align: center; font-style: italic;">The Goblin Mountains in Utah - heading West on Highway 70</p>

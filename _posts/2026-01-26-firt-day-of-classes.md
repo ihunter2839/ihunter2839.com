@@ -1,0 +1,13 @@
+------
+layout: post
+title: "First Day of Classes"
+author: "Ian Hunter"
+date: 2026-01-26
+tags: [""]
+---
+
+Technically, the first day of classes was last Thursday, but I was sicker than a dog after getting back from Bend and spent the day in bed. The two classes I'll be taking are EE 121 (signal processing) and EE 140 (electricity and magnetism). I am mostly excited and nervous about 140, as it is known as the killer class, but I am looking forward to digging my teeth into some of the fundamentals that I have been working with for the past three years and ensure I understand them from the ground up. 
+
+Site is finally turning into something that may have some long term staying power and real functionality. Still need to sort out how to split types of posts between recipes, writing, poems, but its at least a start. Also need to get the projects page populated and _make some projects_. And photos, still need an good photo viewing solution.
+
+Today feels different than yesterday, but everyday does. The cycles of frustration, anger, despondence, rejection, and then finally acceptance and sadness are difficult to bear, and I usually don't feel much like myself when I am in the throes of it. But I know that I need to push through those feelings, because what I was doing to myself, and what K was doing to me, was not healthy for me (or either of us, realistically). I know she is conflicted about what she wants, how to get there, and who to be there with. But I can't endlessly wait around for her to determine if I am good enough while simultaneously being devestated by her sporadic desires to be with other people. I hope for her sake that she can find peace, and maybe with one less hand in the pot she will be able to decide whether or not she really wants to pursue her relationship with C. The only thing that I can say with certainty is that what I was doing wasn't working, and you know what they say about insanity. 
