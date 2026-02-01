@@ -8,6 +8,8 @@ tags: [dinner]
 
 An easy homemade chili recipe made with ground beef, onion, tomatoes, beans, and seasonings. Cooks in just 20 minutes for a crowd-pleasing meal.
 
+What if I add a change?
+
 Originally from [Allrecipes](https://www.allrecipes.com/recipe/16248/easy-homemade-chili/)
 
 ### Ingredients
